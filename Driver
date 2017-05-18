@@ -1,5 +1,2 @@
-public class Driver {
-  public static void main(String[] args) {
-    System.out.println("hello world"); // see if it works
-  } 
-}
+System.out.println("hello world"); // see if it works
+
