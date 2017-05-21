@@ -9,14 +9,17 @@ package laffey.matthew;
  */
 public class Driver {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("I wrote this code on my computer in eclipse, if this gets on github, im a friggin genius");
-		// im so cool
-		//fite me
+		Deck d = new Deck();
+		System.out.println(d);
+		d.shuffle();
+		System.out.println(d);
+		System.out.println(d.drawACard());
+		System.out.println(d);
+		System.out.println(d.drawACard());
+		System.out.println(d);
+		System.out.println(d.drawACard());
+		System.out.println(d);
 	}
 
 }
