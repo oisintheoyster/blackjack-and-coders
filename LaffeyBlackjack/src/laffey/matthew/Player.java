@@ -1,21 +1,24 @@
 package laffey.matthew;
 
-import java.util.ArrayList;
-
 public class Player {
 
-	private ArrayList<Card> hand;
+	private Hand hand;
 	private int bet;
 	private String name;
 	private int money;
 	
-	public Player(String name, int money) {
+	public Player(String name, int money, Deck d) {
 		this.name = name;
 		this.money = money;
+		
+	}
+	
+	public int getBet() {
+		return bet;
 	}
 	
 	public void hit(Deck d) {
-		hand.add(d.drawACard());
+		hand.hit(d);
 	}
 	
 	public String getName() { 
@@ -30,16 +33,15 @@ public class Player {
 		this.money = money;
 	}
 	
-	public void discardHand() {
-		hand.clear();
+	public void drawNewHand(Deck d) {
+		hand = new Hand(d);
 	}
 	
 	public void setBet(int bet) {
 		this.bet = bet;
 	}
 	
-	public boolean 
-	
-	
-
+	public Hand getHand() {
+		return hand;
+	}
 }

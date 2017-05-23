@@ -13,8 +13,6 @@ public class Deck extends Card{
 			for (int i = 1; i <= 13; i++) {
 				d[index_of_card_to_initialize] = new Card(s, i);
 				index_of_card_to_initialize ++;
-				//System.out.println(d[index_of_card_to_initialize-1]);
-				//System.out.println(index_of_card_to_initialize);
 			}
 		}
 	}
@@ -36,9 +34,9 @@ public class Deck extends Card{
 	}
 	
 	//returns the shuffled deck
-	//it makes 300 random swaps to shuffle the deck
+	//it makes 10000 random swaps to shuffle the deck
 	public void shuffle() {
-		for (int i = 0; i < 300; i++) {
+		for (int i = 0; i < 10000; i++) {
 			int x = (int)(Math.random()*52);
 			int y = (int)(Math.random()*52);
 			Card c = d[x];
