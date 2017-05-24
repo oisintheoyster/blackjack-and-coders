@@ -2,21 +2,18 @@ package laffey.matthew;
 
 import java.util.ArrayList;
 
-public class Hand extends Card{
-
+public class Hand {
 
 	private ArrayList<Card> hand = new ArrayList<>();
 	
 	public Hand() {
 		hand.add(new Card());
 		hand.add(new Card());
-
 	}
 	
 	public Hand(Deck d) {
 		hand.add(d.drawACard());
 		hand.add(d.drawACard());
-
 		
 	}
 	
