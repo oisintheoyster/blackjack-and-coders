@@ -1,12 +1,12 @@
 package laffey.matthew;
 
-public class Deck extends Card{
+public class Deck {
 
-	private Card[] d;
+	private Card[] d = new Card[52];
 	final static Suit[] SUITS = Suit.values();
 	
 	public Deck() {
-		d = new Card[52];
+	
 		int index_of_card_to_initialize = 0;
 		for (Suit s : SUITS) {
 			if (s == Suit.NULL) { break;}
@@ -15,6 +15,8 @@ public class Deck extends Card{
 				index_of_card_to_initialize ++;
 			}
 		}
+		
+		
 	}
 	
 	public Card drawACard(){

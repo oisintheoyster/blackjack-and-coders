@@ -22,7 +22,7 @@ public class Driver {
 		
 		boolean wants_to_play_blackjack = getBoolean( in, "Do you want to play some Blackjack? (true/false)");
 		if(wants_to_play_blackjack) {
-			int user_starting_money = getValidInt(in, "Great, how much money are you bringing to the table tonight (an integer excluding currency symbols)", 0, Integer.MAX_VALUE);
+			int user_starting_money = getValidInt(in, "Great, how much money are you bringing to the table tonight (an integer excluding currency symbols)", 0, (int) (Integer.MAX_VALUE/4) -1);
 			
 			//MAKE NAME INPUT ROBUST
 			
@@ -159,6 +159,7 @@ public class Driver {
 					System.out.println("However we cannot continue to sustain your current winning streak (we are a business after all)");
 					System.out.println("We hope that you have enjoyed your stay and that you will continue to develop your formidable skills.");
 					System.out.println("Goodbye!");
+					break;
 				}
 				else {
 					user_has_decided_to_terminate_program = !getBoolean(in, "Do you wish to play another round? (true/false)");
@@ -180,6 +181,8 @@ public class Driver {
 			else if	(user_starting_money >  user.getMoney()) {
 				System.out.println("You lost $" + (user_starting_money - user.getMoney()) + "(total) to " + AI.getName() + "!");
 				System.out.println("Better luck next time!");	
+				user_has_decided_to_terminate_program = true;
+				
 			}
 			else {
 				System.out.println("Congrats, you're leaving with the exact same amount that you came in with. Not many can say that!");
