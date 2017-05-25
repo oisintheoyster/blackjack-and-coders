@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Driver {
 
 	public static void main(String[] args) {
+		
 		Scanner in = new Scanner(System.in);
 		Deck d = new Deck();
 		String user_name;
@@ -19,10 +20,19 @@ public class Driver {
 		String AI_name;
 		Player AI;
 		Boolean user_has_decided_to_terminate_program = false;
+		int round;
+		int starting_bet;
+		int raise;
+		boolean user_wants_to_hit;
+		int hit_counter;
+		boolean wants_to_play_blackjack;
+		int user_starting_money;
 		
-		boolean wants_to_play_blackjack = getBoolean( in, "Do you want to play some Blackjack? (true/false)");
+		
+		
+		wants_to_play_blackjack = getBoolean( in, "Do you want to play some Blackjack? (true/false)");
 		if(wants_to_play_blackjack) {
-			int user_starting_money = getValidInt(in, "Great, how much money are you bringing to the table tonight (an integer excluding currency symbols)", 0, (int) (Integer.MAX_VALUE/4) -1);
+			user_starting_money = getValidInt(in, "Great, how much money are you bringing to the table tonight (an integer excluding currency symbols)", 0, (int) (Integer.MAX_VALUE/4) -1);
 			
 			//MAKE NAME INPUT ROBUST
 			
@@ -38,7 +48,7 @@ public class Driver {
 			AI = new Player(AI_name, Integer.MAX_VALUE, d);
 			
 			System.out.println("OK, Lets get this started!");
-			int round = 1;
+			round = 1;
 			
 			while(!user_has_decided_to_terminate_program) {
 				
@@ -49,7 +59,7 @@ public class Driver {
 				System.out.println("Round: " + round);
 				System.out.println("");
 				
-				int starting_bet = getValidInt(in, "Input Starting Bet: ", 0, user.getMoney());
+				starting_bet = getValidInt(in, "Input Starting Bet: ", 0, user.getMoney());
 				user.setBet(starting_bet);
 				AI.setBet(starting_bet);
 				
@@ -66,7 +76,7 @@ public class Driver {
 				
 				System.out.println("");
 				
-				int raise = getValidInt(in, "Input the amount you'd like to raise (input 0 if checking)", 0, user.getMoney()-user.getBet());
+				raise = getValidInt(in, "Input the amount you'd like to raise (input 0 if checking)", 0, user.getMoney()-user.getBet());
 				
 				System.out.println("");
 				
@@ -79,11 +89,11 @@ public class Driver {
 				
 				System.out.println("Your current hand is: " + user.getHand() + " (Total Value: " + user.getHand().getHandValue() + ")");
 				
-				boolean user_wants_to_hit = getBoolean(in, "Enter 'true' to hit and 'false' to stick");
+				user_wants_to_hit = getBoolean(in, "Enter 'true' to hit and 'false' to stick");
 				
 				System.out.println("");
 				
-				int hit_counter = 1;
+				hit_counter = 1;
 				
 				while (user_wants_to_hit) {
 								
